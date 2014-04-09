@@ -37,7 +37,7 @@
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vkb-c9-JOs">
-                                <rect key="frame" x="112" y="383" width="27" height="27"/>
+                                <rect key="frame" x="99" y="383" width="27" height="27"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.36805570949999999" green="0.81150350770000002" blue="0.042376809580000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -66,6 +66,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-jg-aLm">
+                                <rect key="frame" x="34" y="443" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.030135170494606456" green="0.94528692875775389" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view alpha="0.5499999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-SU-67i">
+                                <rect key="frame" x="48" y="443" width="25" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.030135170490000002" green="0.94528692879999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRa-xs-bh1">
+                                <rect key="frame" x="73" y="443" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.030135170490000002" green="0.94528692879999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -78,6 +93,9 @@
                         <outlet property="obstacle1" destination="5PZ-HU-8wZ" id="HFn-Nx-B6G"/>
                         <outlet property="obstacle2" destination="QH8-ds-jIf" id="bnt-kX-40j"/>
                         <outlet property="obstacle3" destination="RoV-Xt-He1" id="S91-cC-APT"/>
+                        <outlet property="ringCenter" destination="g0z-SU-67i" id="aek-qs-h09"/>
+                        <outlet property="ringLeft" destination="dPX-jg-aLm" id="geH-oa-c2f"/>
+                        <outlet property="ringRight" destination="VRa-xs-bh1" id="ASE-4o-7Yd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -21,9 +21,17 @@
 @property (weak, nonatomic) IBOutlet UIView *obstacle2;
 @property (weak, nonatomic) IBOutlet UIView *obstacle3;
 @property (strong) NSMutableArray* obstacles;
-@property (strong) NSMutableArray* movableObjects;
+@property (strong) NSMutableArray* foregroundObjects;
+@property (strong) NSMutableArray* etherealObjects;
+@property (strong) NSMutableArray* foregroundCollisionArray;
 @property (strong) NSMutableArray* allObjects;
 @property (strong) UIDynamicItemBehavior* dynamicBehavior;
+
+@property (weak, nonatomic) IBOutlet UIView *ringLeft;
+@property (weak, nonatomic) IBOutlet UIView *ringRight;
+@property (weak, nonatomic) IBOutlet UIView *ringCenter;
+
+
 @end
 
 @implementation ViewController
@@ -33,15 +41,20 @@
     [super viewDidLoad];
     
     self.obstacles = [[NSMutableArray alloc] initWithArray:@[self.obstacle1,self.obstacle2,self.obstacle3]];
-    self.movableObjects = [[NSMutableArray alloc] initWithArray:@[self.objView1,self.objView2,self.objView3,self.objView4,self.objView5]];
-    self.allObjects = [[NSMutableArray alloc] initWithArray:self.obstacles];
-    [self.allObjects addObjectsFromArray:self.movableObjects];
+    self.foregroundObjects = [[NSMutableArray alloc] initWithArray:@[self.objView1,self.objView2,self.objView3,self.objView4,self.objView5,self.ringLeft,self.ringRight]];
+    self.etherealObjects = [[NSMutableArray alloc] initWithArray:@[self.ringCenter]];
+    
+    self.foregroundCollisionArray = [[NSMutableArray alloc] initWithArray:self.obstacles];
+    [self.foregroundCollisionArray addObjectsFromArray:self.foregroundObjects];
+    
+    self.allObjects = [[NSMutableArray alloc] initWithArray:self.foregroundCollisionArray];
+    [self.allObjects addObjectsFromArray:self.etherealObjects];
     
 	// Do any additional setup after loading the view, typically from a nib.
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
-    self.gravity = [[UIGravityBehavior alloc] initWithItems:self.movableObjects];
-    self.collision = [[UICollisionBehavior alloc] initWithItems:self.allObjects];
-    self.dynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.movableObjects];
+    self.gravity = [[UIGravityBehavior alloc] initWithItems:self.foregroundObjects];
+    self.collision = [[UICollisionBehavior alloc] initWithItems:self.foregroundCollisionArray];
+    self.dynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.allObjects];
     
     for (UIView *obstacle in self.obstacles) {
         UIAttachmentBehavior *attachment = [[UIAttachmentBehavior alloc] initWithItem:obstacle attachedToAnchor:obstacle.center];
@@ -61,6 +74,18 @@
     [self.animator addBehavior:self.dynamicBehavior];
     
     
+    UIAttachmentBehavior* attach = [[UIAttachmentBehavior alloc] initWithItem:self.ringLeft attachedToItem:self.ringRight];
+    attach.damping = 0;
+    [self.animator addBehavior:attach];
+    
+    attach = [[UIAttachmentBehavior alloc] initWithItem:self.ringCenter attachedToItem:self.ringRight];
+    attach.damping = 0;
+    [self.animator addBehavior:attach];
+    
+    attach = [[UIAttachmentBehavior alloc] initWithItem:self.ringCenter attachedToItem:self.ringLeft];
+    attach.damping = 0;
+    [self.animator addBehavior:attach];
+    
     UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     
     singleTap.numberOfTapsRequired = 1;
@@ -70,7 +95,7 @@
 }
 
 - (IBAction)bottomLeftButton:(id)sender {
-    for (UIView *obj in self.movableObjects) {
+    for (UIView *obj in self.foregroundObjects) {
         UIPushBehavior* pushBehavior;
         pushBehavior = [[UIPushBehavior alloc] initWithItems:@[obj] mode:UIPushBehaviorModeInstantaneous];
         pushBehavior.magnitude = 0.0f;
@@ -92,7 +117,7 @@
 }
 
 - (IBAction)bottomRightButton:(id)sender {
-    for (UIView *obj in self.movableObjects) {
+    for (UIView *obj in self.foregroundObjects) {
         UIPushBehavior* pushBehavior;
         pushBehavior = [[UIPushBehavior alloc] initWithItems:@[obj] mode:UIPushBehaviorModeInstantaneous];
         pushBehavior.magnitude = 0.0f;
