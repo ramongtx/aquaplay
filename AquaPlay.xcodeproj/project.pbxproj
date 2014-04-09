@@ -22,6 +22,7 @@
 		F626C30218ED8837000578E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F626C30018ED8837000578E5 /* InfoPlist.strings */; };
 		F626C30418ED8837000578E5 /* AquaPlayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F626C30318ED8837000578E5 /* AquaPlayTests.m */; };
 		F626C30E18EDBCA2000578E5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626C30D18EDBCA2000578E5 /* CoreMotion.framework */; };
+		F6CBA6F318F5AF3300AA2C9A /* RingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBA6F218F5AF3300AA2C9A /* RingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		F626C30118ED8837000578E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F626C30318ED8837000578E5 /* AquaPlayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AquaPlayTests.m; sourceTree = "<group>"; };
 		F626C30D18EDBCA2000578E5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F6CBA6F118F5AF3300AA2C9A /* RingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingView.h; sourceTree = "<group>"; };
+		F6CBA6F218F5AF3300AA2C9A /* RingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				F626C2EA18ED8837000578E5 /* Main.storyboard */,
 				F626C2ED18ED8837000578E5 /* ViewController.h */,
 				F626C2EE18ED8837000578E5 /* ViewController.m */,
+				F6CBA6F118F5AF3300AA2C9A /* RingView.h */,
+				F6CBA6F218F5AF3300AA2C9A /* RingView.m */,
 				F626C2F018ED8837000578E5 /* Images.xcassets */,
 				F626C2DF18ED8837000578E5 /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CBA6F318F5AF3300AA2C9A /* RingView.m in Sources */,
 				F626C2EF18ED8837000578E5 /* ViewController.m in Sources */,
 				F626C2E918ED8837000578E5 /* AppDelegate.m in Sources */,
 				F626C2E518ED8837000578E5 /* main.m in Sources */,
