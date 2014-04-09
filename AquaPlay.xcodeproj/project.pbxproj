@@ -23,6 +23,15 @@
 		F626C30418ED8837000578E5 /* AquaPlayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F626C30318ED8837000578E5 /* AquaPlayTests.m */; };
 		F626C30E18EDBCA2000578E5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626C30D18EDBCA2000578E5 /* CoreMotion.framework */; };
 		F6CBA6F318F5AF3300AA2C9A /* RingView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBA6F218F5AF3300AA2C9A /* RingView.m */; };
+		F6CBA6F618F5C7FE00AA2C9A /* GLIRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBA6F518F5C7FE00AA2C9A /* GLIRViewController.m */; };
+		F6CBA6FB18F5C83F00AA2C9A /* RippleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CBA6F818F5C83F00AA2C9A /* RippleModel.m */; };
+		F6CBA6FC18F5C83F00AA2C9A /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F6CBA6F918F5C83F00AA2C9A /* Shader.fsh */; };
+		F6CBA6FD18F5C83F00AA2C9A /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = F6CBA6FA18F5C83F00AA2C9A /* Shader.vsh */; };
+		F6CBA6FF18F5C8E400AA2C9A /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6CBA6FE18F5C8E400AA2C9A /* background.jpg */; };
+		F6CBA70118F5C92A00AA2C9A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CBA70018F5C92A00AA2C9A /* GLKit.framework */; };
+		F6CBA70318F5C93400AA2C9A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CBA70218F5C93400AA2C9A /* OpenGLES.framework */; };
+		F6CBA70518F5C94100AA2C9A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CBA70418F5C94100AA2C9A /* CoreVideo.framework */; };
+		F6CBA70718F5C96700AA2C9A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CBA70618F5C96700AA2C9A /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +67,17 @@
 		F626C30D18EDBCA2000578E5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		F6CBA6F118F5AF3300AA2C9A /* RingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingView.h; sourceTree = "<group>"; };
 		F6CBA6F218F5AF3300AA2C9A /* RingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingView.m; sourceTree = "<group>"; };
+		F6CBA6F418F5C7FE00AA2C9A /* GLIRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLIRViewController.h; sourceTree = "<group>"; };
+		F6CBA6F518F5C7FE00AA2C9A /* GLIRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIRViewController.m; sourceTree = "<group>"; };
+		F6CBA6F718F5C83F00AA2C9A /* RippleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RippleModel.h; sourceTree = "<group>"; };
+		F6CBA6F818F5C83F00AA2C9A /* RippleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RippleModel.m; sourceTree = "<group>"; };
+		F6CBA6F918F5C83F00AA2C9A /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		F6CBA6FA18F5C83F00AA2C9A /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		F6CBA6FE18F5C8E400AA2C9A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		F6CBA70018F5C92A00AA2C9A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		F6CBA70218F5C93400AA2C9A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		F6CBA70418F5C94100AA2C9A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F6CBA70618F5C96700AA2C9A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +85,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CBA70718F5C96700AA2C9A /* QuartzCore.framework in Frameworks */,
+				F6CBA70518F5C94100AA2C9A /* CoreVideo.framework in Frameworks */,
+				F6CBA70318F5C93400AA2C9A /* OpenGLES.framework in Frameworks */,
+				F6CBA70118F5C92A00AA2C9A /* GLKit.framework in Frameworks */,
 				F626C30E18EDBCA2000578E5 /* CoreMotion.framework in Frameworks */,
 				F626C2DB18ED8837000578E5 /* CoreGraphics.framework in Frameworks */,
 				F626C2DD18ED8837000578E5 /* UIKit.framework in Frameworks */,
@@ -107,6 +131,10 @@
 		F626C2D718ED8837000578E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6CBA70618F5C96700AA2C9A /* QuartzCore.framework */,
+				F6CBA70418F5C94100AA2C9A /* CoreVideo.framework */,
+				F6CBA70218F5C93400AA2C9A /* OpenGLES.framework */,
+				F6CBA70018F5C92A00AA2C9A /* GLKit.framework */,
 				F626C30D18EDBCA2000578E5 /* CoreMotion.framework */,
 				F626C2D818ED8837000578E5 /* Foundation.framework */,
 				F626C2DA18ED8837000578E5 /* CoreGraphics.framework */,
@@ -119,6 +147,13 @@
 		F626C2DE18ED8837000578E5 /* AquaPlay */ = {
 			isa = PBXGroup;
 			children = (
+				F6CBA6FE18F5C8E400AA2C9A /* background.jpg */,
+				F6CBA6F718F5C83F00AA2C9A /* RippleModel.h */,
+				F6CBA6F818F5C83F00AA2C9A /* RippleModel.m */,
+				F6CBA6F918F5C83F00AA2C9A /* Shader.fsh */,
+				F6CBA6FA18F5C83F00AA2C9A /* Shader.vsh */,
+				F6CBA6F418F5C7FE00AA2C9A /* GLIRViewController.h */,
+				F6CBA6F518F5C7FE00AA2C9A /* GLIRViewController.m */,
 				F626C2E718ED8837000578E5 /* AppDelegate.h */,
 				F626C2E818ED8837000578E5 /* AppDelegate.m */,
 				F626C2EA18ED8837000578E5 /* Main.storyboard */,
@@ -237,9 +272,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6CBA6FC18F5C83F00AA2C9A /* Shader.fsh in Resources */,
 				F626C2F118ED8837000578E5 /* Images.xcassets in Resources */,
 				F626C2E318ED8837000578E5 /* InfoPlist.strings in Resources */,
+				F6CBA6FF18F5C8E400AA2C9A /* background.jpg in Resources */,
 				F626C2EC18ED8837000578E5 /* Main.storyboard in Resources */,
+				F6CBA6FD18F5C83F00AA2C9A /* Shader.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6CBA6F318F5AF3300AA2C9A /* RingView.m in Sources */,
+				F6CBA6FB18F5C83F00AA2C9A /* RippleModel.m in Sources */,
 				F626C2EF18ED8837000578E5 /* ViewController.m in Sources */,
+				F6CBA6F618F5C7FE00AA2C9A /* GLIRViewController.m in Sources */,
 				F626C2E918ED8837000578E5 /* AppDelegate.m in Sources */,
 				F626C2E518ED8837000578E5 /* main.m in Sources */,
 			);

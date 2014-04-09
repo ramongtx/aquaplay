@@ -27,11 +27,6 @@ UIColor* color;
 - (void) initiateRing
 {
     // drop shadow
-    [self.layer setShadowColor:[UIColor blackColor].CGColor];
-    [self.layer setShadowOpacity:0.1];
-    [self.layer setShadowRadius:3.0];
-    [self.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-    
     if (!self.left) {
         CGRect rect = CGRectApplyAffineTransform(self.frame, CGAffineTransformMakeScale(0.25, 1));
         rect.origin.x = 0;

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import "GLIRViewController.h"
 
 
-
-@interface ViewController : UIViewController
+@interface ViewController : GLIRViewController
 
 @end
