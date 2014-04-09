@@ -9,8 +9,10 @@
 #import "ViewController.h"
 #import "RingView.h"
 
-#define RING_WIDTH 60
-#define RING_HEIGHT 20
+#define RING_WIDTH 26
+#define RING_HEIGHT 26
+#define RING_DENSITY 1
+#define RING_ELASTICITY 0.1
 
 @interface ViewController ()
 @property (strong) UIDynamicAnimator* animator;
@@ -51,7 +53,7 @@
     self.ringArray = [[NSMutableArray alloc] init];
     self.leftArray = [[NSMutableArray alloc] init];
     self.rightArray = [[NSMutableArray alloc] init];
-    [self createRings:3];
+    [self createRings:6];
  
     self.gravity = [[UIGravityBehavior alloc] initWithItems:self.ringArray];
     self.gravity.magnitude = 0.5;
@@ -62,19 +64,18 @@
 //    [self.animator addBehavior:self.collisionBackground];
 
     self.dynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.ringArray];
-    self.dynamicBehavior.density = 0.3;
-    self.dynamicBehavior.elasticity = 0.1;
+    self.dynamicBehavior.density = RING_DENSITY;
+    self.dynamicBehavior.elasticity = RING_ELASTICITY;
     [self.animator addBehavior:self.dynamicBehavior];
 
 
-    for (RingView* ring in self.ringArray) {
-        UIAttachmentBehavior *leftAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.left attachedToItem:ring];
-        [self.animator addBehavior:leftAttachment];
-        UIAttachmentBehavior *rightAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.right attachedToItem:ring];
-        [self.animator addBehavior:rightAttachment];
-    }
+//    for (RingView* ring in self.ringArray) {
+//        UIAttachmentBehavior *leftAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.left attachedToItem:ring];
+//        [self.animator addBehavior:leftAttachment];
+//        UIAttachmentBehavior *rightAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.right attachedToItem:ring];
+//        [self.animator addBehavior:rightAttachment];
+//    }
 
-    
     
     
     self.obstacles = [[NSMutableArray alloc] initWithArray:@[self.obstacle1,self.obstacle2,self.obstacle3]];
@@ -224,6 +225,26 @@
         if (goodView) {
             [self.view addSubview:ring];
             ring.alpha = 0.8;
+            
+            UIColor* color;
+            switch (arc4random()%4) {
+                case 0:
+                    color = [UIColor colorWithRed:0x68/255.0 green:0x0B/255.0 blue:0xAB/255.0 alpha:1];
+                    break;
+                case 1:
+                    color = [UIColor colorWithRed:0xC5/255.0 green:0x00/255.0 blue:0x80/255.0 alpha:1];
+                    break;
+                case 2:
+                    color = [UIColor colorWithRed:0x8D/255.0 green:0xB4/255.0 blue:0x2D/255.0 alpha:1];
+                    break;
+                case 3:
+                    color = [UIColor colorWithRed:0xFF/255.0 green:0xF8/255.0 blue:0x00/255.0 alpha:1];
+                    break;
+                default:
+                    break;
+            }
+                [ring setColor:color];
+            
             [self.ringArray addObject:ring];
             [self.leftArray addObject:ring.left];
             [self.rightArray addObject:ring.right];

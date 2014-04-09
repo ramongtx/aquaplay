@@ -7,6 +7,7 @@
 //
 
 #import "RingView.h"
+#define BLOCK_MODE YES
 
 @implementation RingView
 
@@ -82,9 +83,14 @@ UIColor* color;
 {
     color = newColor;
     self.backgroundColor = color;
-    self.left.backgroundColor = [self darkerColor:color];
-    self.right.backgroundColor = [self darkerColor:color];
-
+    if (BLOCK_MODE) {
+        self.left.backgroundColor = color;
+        self.right.backgroundColor = color;
+    } else {
+        self.left.backgroundColor = [self darkerColor:color];
+        self.right.backgroundColor = [self darkerColor:color];        
+    }
+    
 }
 
 @end
