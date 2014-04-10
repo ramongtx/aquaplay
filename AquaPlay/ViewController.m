@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "RingView.h"
 
-#define RING_WIDTH 26
-#define RING_HEIGHT 26
-#define RING_DENSITY 1
-#define RING_ELASTICITY 0.1
+#define RING_WIDTH 50
+#define RING_SIDE RING_WIDTH / 4
+#define RING_HEIGHT 18
+#define RING_DENSITY 0.40
+#define RING_ELASTICITY 0.05
+#define NUMBER_RINGS 6
 
 @interface ViewController ()
 @property (strong) UIDynamicAnimator *animator;
@@ -23,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIView *obstacle1;
 @property (weak, nonatomic) IBOutlet UIView *obstacle2;
 @property (weak, nonatomic) IBOutlet UIView *obstacle3;
+@property (weak, nonatomic) IBOutlet UIView *bottomObstacle;
+
 
 @property (strong) NSMutableArray *obstacles;
 @property (strong) NSMutableArray *collisionGroup;
@@ -39,69 +43,81 @@
 
 @implementation ViewController
 
+CGPoint rightCorner;
+CGPoint leftCorner;
+
 - (void)viewDidLoad {
 	self.rippleImageName = @"background.jpg";
 
 	[super viewDidLoad];
+
+	leftCorner = CGPointMake(self.view.frame.origin.x, self.view.frame.size.height - self.bottomObstacle.frame.size.height);
+	rightCorner = CGPointMake(self.view.frame.size.width, self.view.frame.size.height - self.bottomObstacle.frame.size.height);
 
 	self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 
 	self.ringArray = [[NSMutableArray alloc] init];
 	self.leftArray = [[NSMutableArray alloc] init];
 	self.rightArray = [[NSMutableArray alloc] init];
-	[self createRings:8];
-
-	self.gravity = [[UIGravityBehavior alloc] initWithItems:self.ringArray];
-	self.gravity.magnitude = 0.5;
-	[self.animator addBehavior:self.gravity];
-
-//    self.collisionBackground = [[UICollisionBehavior alloc] initWithItems:self.ringArray];
-//    self.collisionBackground.translatesReferenceBoundsIntoBoundary = YES;
-//    [self.animator addBehavior:self.collisionBackground];
+	[self createRings:NUMBER_RINGS];
 
 	self.dynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.ringArray];
 	self.dynamicBehavior.density = RING_DENSITY;
 	self.dynamicBehavior.elasticity = RING_ELASTICITY;
 	[self.animator addBehavior:self.dynamicBehavior];
 
-//    for (RingView* ring in self.ringArray) {
-//        UIAttachmentBehavior *leftAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.left attachedToItem:ring];
-//        [self.animator addBehavior:leftAttachment];
-//        UIAttachmentBehavior *rightAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.right attachedToItem:ring];
-//        [self.animator addBehavior:rightAttachment];
-//    }
+	for (RingView *ring in self.ringArray) {
+		UIAttachmentBehavior *leftAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.left offsetFromCenter:UIOffsetMake(0, -RING_HEIGHT / 4) attachedToItem:ring offsetFromCenter:UIOffsetMake(-1.5 * RING_SIDE, -RING_HEIGHT / 4)];
+		[leftAttachment setLength:0];
+		[self.animator addBehavior:leftAttachment];
+		UIAttachmentBehavior *rightAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.right offsetFromCenter:UIOffsetMake(0, -RING_HEIGHT / 4) attachedToItem:ring offsetFromCenter:UIOffsetMake(1.5 * RING_SIDE, -RING_HEIGHT / 4)];
+		[rightAttachment setLength:0];
+		[self.animator addBehavior:rightAttachment];
+	}
+
+	for (RingView *ring in self.ringArray) {
+		UIAttachmentBehavior *leftAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.left offsetFromCenter:UIOffsetMake(0, RING_HEIGHT / 4) attachedToItem:ring offsetFromCenter:UIOffsetMake(-1.5 * RING_SIDE, RING_HEIGHT / 4)];
+		[leftAttachment setLength:0];
+		[self.animator addBehavior:leftAttachment];
+		UIAttachmentBehavior *rightAttachment = [[UIAttachmentBehavior alloc] initWithItem:ring.right offsetFromCenter:UIOffsetMake(0, RING_HEIGHT / 4) attachedToItem:ring offsetFromCenter:UIOffsetMake(1.5 * RING_SIDE, RING_HEIGHT / 4)];
+		[rightAttachment setLength:0];
+		[self.animator addBehavior:rightAttachment];
+	}
 
 
-
-	self.obstacles = [[NSMutableArray alloc] initWithArray:@[self.obstacle1, self.obstacle2, self.obstacle3]];
+	self.obstacles = [[NSMutableArray alloc] initWithArray:@[self.obstacle1, self.obstacle2, self.obstacle3, self.bottomObstacle]];
 	for (UIView *obstacle in self.obstacles) {
 		UIAttachmentBehavior *attachment = [[UIAttachmentBehavior alloc] initWithItem:obstacle attachedToAnchor:obstacle.center];
 		[self.animator addBehavior:attachment];
 	}
 
 	self.collisionGroup = [[NSMutableArray alloc] initWithArray:self.obstacles];
-	[self.collisionGroup addObjectsFromArray:self.ringArray];
-//    [self.collisionGroup addObjectsFromArray:self.leftArray];
-//    [self.collisionGroup addObjectsFromArray:self.rightArray];
-
+	[self.collisionGroup addObjectsFromArray:self.leftArray];
+	[self.collisionGroup addObjectsFromArray:self.rightArray];
 
 	self.collisionForeground = [[UICollisionBehavior alloc] initWithItems:self.collisionGroup];
 	self.collisionForeground.translatesReferenceBoundsIntoBoundary = YES;
 	[self.animator addBehavior:self.collisionForeground];
 
+	self.collisionBackground = [[UICollisionBehavior alloc] initWithItems:self.ringArray];
+	self.collisionBackground.translatesReferenceBoundsIntoBoundary = YES;
+	[self.animator addBehavior:self.collisionBackground];
+
 	UIDynamicItemBehavior *itemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:self.obstacles];
 	itemBehavior.allowsRotation = NO;
 	[self.animator addBehavior:itemBehavior];
 
-
+	self.gravity = [[UIGravityBehavior alloc] initWithItems:self.ringArray];
+	self.gravity.magnitude = 0.5;
+	[self.animator addBehavior:self.gravity];
 
 
 	// Tap Gesture Recognizer
-	UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-
-	singleTap.numberOfTapsRequired = 1;
-	singleTap.numberOfTouchesRequired = 1;
-	[self.view addGestureRecognizer:singleTap];
+//	UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+//
+//	singleTap.numberOfTapsRequired = 1;
+//	singleTap.numberOfTouchesRequired = 1;
+//	[self.view addGestureRecognizer:singleTap];
 }
 
 - (IBAction)bottomLeftButton:(id)sender {
@@ -112,7 +128,6 @@
 		pushBehavior.angle = 0.0f;
 		[self.animator addBehavior:pushBehavior];
 
-		CGPoint leftCorner = CGPointMake(self.view.frame.origin.x, self.view.frame.size.height);
 		CGPoint distanceVector = [self vectorFromPoint:obj.center toPoint:leftCorner];
 		CGFloat distance = sqrt((distanceVector.x * distanceVector.x) + (distanceVector.y * distanceVector.y)) + 10;
 		CGFloat originForce = -7.0f;
@@ -122,6 +137,7 @@
 
 		pushBehavior.pushDirection = CGVectorMake(originForce * distanceVector.y, 2 * originForce * distanceVector.x);
 		pushBehavior.active = YES;
+		[_ripple initiateRippleAtLocation:leftCorner];
 	}
 }
 
@@ -133,7 +149,6 @@
 		pushBehavior.angle = 0.0f;
 		[self.animator addBehavior:pushBehavior];
 
-		CGPoint rightCorner = CGPointMake(self.view.frame.size.width, self.view.frame.size.height);
 		CGPoint distanceVector = [self vectorFromPoint:obj.center toPoint:rightCorner];
 		CGFloat distance = sqrt((distanceVector.x * distanceVector.x) + (distanceVector.y * distanceVector.y)) + 10;
 		CGFloat originForce = 7.0f;
@@ -143,6 +158,7 @@
 
 		pushBehavior.pushDirection = CGVectorMake(originForce * distanceVector.y, 2 * originForce * distanceVector.x);
 		pushBehavior.active = YES;
+		[_ripple initiateRippleAtLocation:rightCorner];
 	}
 }
 
@@ -213,6 +229,7 @@
 		}
 		if (goodView) {
 			[self.view addSubview:ring];
+			[ring addSidesToSuperView];
 			ring.alpha = 0.8;
 
 			UIColor *color;

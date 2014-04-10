@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface RingView : UIView
-@property (strong) UIView* left, *right;
+@property (strong) UIView *left, *right;
 
-- (void) initiateRing;
-- (void) setColor:(UIColor *)newColor;
-
+- (void)initiateRing;
+- (void)setColor:(UIColor *)newColor;
+- (void)addSidesToSuperView;
 @end

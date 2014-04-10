@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F605951818F715A0000EAD4C /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = F605951718F715A0000EAD4C /* button.png */; };
+		F605951A18F71634000EAD4C /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = F605951918F71634000EAD4C /* button2.png */; };
 		F626C2D918ED8837000578E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626C2D818ED8837000578E5 /* Foundation.framework */; };
 		F626C2DB18ED8837000578E5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626C2DA18ED8837000578E5 /* CoreGraphics.framework */; };
 		F626C2DD18ED8837000578E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F626C2DC18ED8837000578E5 /* UIKit.framework */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F605951718F715A0000EAD4C /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = SOURCE_ROOT; };
+		F605951918F71634000EAD4C /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button2.png; sourceTree = SOURCE_ROOT; };
 		F626C2D518ED8837000578E5 /* AquaPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AquaPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F626C2D818ED8837000578E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F626C2DA18ED8837000578E5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +151,8 @@
 		F626C2DE18ED8837000578E5 /* AquaPlay */ = {
 			isa = PBXGroup;
 			children = (
+				F605951918F71634000EAD4C /* button2.png */,
+				F605951718F715A0000EAD4C /* button.png */,
 				F6CBA6FE18F5C8E400AA2C9A /* background.jpg */,
 				F6CBA6F718F5C83F00AA2C9A /* RippleModel.h */,
 				F6CBA6F818F5C83F00AA2C9A /* RippleModel.m */,
@@ -272,9 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F605951818F715A0000EAD4C /* button.png in Resources */,
 				F6CBA6FC18F5C83F00AA2C9A /* Shader.fsh in Resources */,
 				F626C2F118ED8837000578E5 /* Images.xcassets in Resources */,
 				F626C2E318ED8837000578E5 /* InfoPlist.strings in Resources */,
+				F605951A18F71634000EAD4C /* button2.png in Resources */,
 				F6CBA6FF18F5C8E400AA2C9A /* background.jpg in Resources */,
 				F626C2EC18ED8837000578E5 /* Main.storyboard in Resources */,
 				F6CBA6FD18F5C83F00AA2C9A /* Shader.vsh in Resources */,
