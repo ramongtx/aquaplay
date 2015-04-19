@@ -10,31 +10,31 @@
 	<string>AquaPlay</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8BFAC9F3-CAA6-4836-ACD1-3DEA33014CC6</key>
+		<key>078B9386C89002B94358FD7A69E7B335DB731DEE</key>
 		<string>https://bitbucket.org/ramongtx/aquaplay.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AquaPlay.xcodeproj/project.xcworkspace</string>
+	<string>AquaPlay.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8BFAC9F3-CAA6-4836-ACD1-3DEA33014CC6</key>
+		<key>078B9386C89002B94358FD7A69E7B335DB731DEE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://bitbucket.org/ramongtx/aquaplay.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8BFAC9F3-CAA6-4836-ACD1-3DEA33014CC6</string>
+	<string>078B9386C89002B94358FD7A69E7B335DB731DEE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8BFAC9F3-CAA6-4836-ACD1-3DEA33014CC6</string>
+			<string>078B9386C89002B94358FD7A69E7B335DB731DEE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>AquaPlay</string>
+			<string>aquaplay</string>
 		</dict>
 	</array>
 </dict>
